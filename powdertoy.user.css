@@ -1,0 +1,257 @@
+/* ==UserStyle==
+@name           Powder Toy Modern
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Make Powder Toy website a little nicer
+@author         Bowserinator
+@preprocessor   less
+==/UserStyle== */
+@-moz-document url-prefix("https://powdertoy.co.uk/") {
+    /* Remove pls don't block the ads */
+    .title > div:nth-child(2) { display: none; }
+    
+    /* Top menu */
+    @nav-height: 50px;
+    .main-menu {
+        background-image: none;
+        background-color: #f1f1f1;
+        position: relative;
+        left: -10px;
+        height: @nav-height;
+        box-shadow: none;
+        
+        /* Search bar */
+        @search-gap: 5px;
+        @search-height: calc(@nav-height - @search-gap - @search-gap);
+        .span2 { width: 200px; }
+        .navbar-search.span2 {
+            margin: @search-gap 0 !important;
+            height: @search-height !important;
+            
+            & > .span2 {
+                height: @search-height;
+                box-sizing: border-box;
+            }
+        }
+        
+        & .nav > li {
+            &.active > a {
+                background-color: #f7f7f7;
+            }
+            & > a {
+                height: @nav-height;
+                line-height: calc(@nav-height - 20px);
+                box-sizing: border-box;
+                border-left: none;
+            }
+            
+            /* Fix the caret */
+            .caret { margin-top: 14px; }
+        }
+        
+        /* Gravatar */
+        .gravatar {
+            margin: 0 !important;
+            box-shadow: none !important;
+
+            .gravatar-inner {
+                box-shadow: none !important;
+                background-image: none !important;
+            }
+            img {
+                margin: 7.5px;
+                width: calc(@nav-height - 15px) !important;
+                height: calc(@nav-height - 15px) !important;
+            }
+        }
+    }
+    
+    /* Forum user pfp */
+    .Gravatar {
+        border-radius: 2px !important;
+        border: 1px solid #ddd !important;
+        background: none !important;
+        
+        img {
+            border-radius: 2px !important;
+        }
+    }
+    
+    /* User page pfp */
+    .ProfilePicture {
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02) !important;
+        border-radius: 2px !important;
+        background: none !important;
+        border: 1px solid #ccc;
+    }
+    
+    /* Save grid */
+    .savegame-outer {
+        padding: 0px;
+    }
+    .Browse .Pagination {
+        margin-bottom: 9px;
+    }
+    .thumbnails .save-game-outer {
+        float: inherit;
+    }
+    .savegame {
+        margin: 3px !important;
+        width: 167px;
+        padding: 0;
+        height: auto;
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .caption {
+            margin: 2px 4px 4px 4px;
+        }
+    }
+    .thumbnails {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-top: 9px;
+        // justify-content: center;
+    }
+    
+
+    /* Transitions */
+    .nav-tabs .open .dropdown-toggle,
+    .nav-pills .open .dropdown-toggle,
+    .nav > li.dropdown.open.active > a:hover {
+        transition: 0.2s;
+    }
+
+    .dropdown-menu a {
+        transition: 0.3s;
+    }
+    .dropdown-menu {
+        transition: 0.2s;
+    }
+
+    /* Forums */
+    .CategoryList li,
+    .TopicList li {
+        border-bottom: 1px solid #eee;
+    }
+
+    .CategoryList li:hover,
+    .TopicList li:hover {
+        background-color: #eee;
+        transition: 1s;
+    }
+
+    .breadcrumb {
+        margin-bottom: 10px;
+    }
+
+    /* Shadows */
+    .CategoryList,
+    .breadcrumb,
+    .outside-header,
+    .TopicList,
+    .contents,
+    .Gravatar {
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.02) !important;
+    }
+
+    /* No gradient */
+    .breadcrumb,
+    .outside-header,
+    .btn {
+        background-image: none !important;
+    }
+
+    .btn {
+        box-shadow: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #00BFFF;
+        transition: 2s;
+    }
+
+    /*No box shadow on active*/
+    .main-menu .nav > .active > a,
+    .main-menu .nav > .active > a:hover {
+        box-shadow: none;
+    }
+
+    /* Adjust border radius */
+    /* ---------------------- */
+    .main-menu .nav > li > a,
+    .main-menu,
+    .outside-header,
+    .main-menu .nav > li:first-child > a,
+    .main-menu .nav > li:first-child > a:hover,
+    .main-menu .nav > li:first-child > a,
+    .main-menu .nav > li:first-child > a:hover,
+    .btn-huge,
+    .savegame,
+    .gravatar-inner,
+    .gravatar img,
+    .main-menu .gravatar-inner,
+    .main-menu .gravatar img,
+    article,
+    pre,
+    input[type="button"],
+    input[type="submit"],
+    .ButtonLink,
+    .PostForm,
+    input[type="text"],
+    textarea,
+    input[type="password"],
+    select,
+    .Warning,
+    .Error,
+    .Information,
+    a.LinkUnselected,
+    a.LinkSelected,
+    #Wrapper .Subheader,
+    .PageheaderSearch input,
+    #Wrapper .Page,
+    #Wrapper div#PageDownload .Download,
+    #Wrapper div#PageRegister form div.OtherF > input[type="text"],
+    #Wrapper div#PageRegister form div.PassF > input[type="password"],
+    #Wrapper div#PageLogin form div.OtherF > input[type="text"],
+    #Wrapper div#PageLogin form div.OtherF > input[type="password"],
+    #Wrapper div.Pagination a.Page,
+    #Wrapper div.Pagination a.NPage,
+    #Wrapper div.Pagination a.Link,
+    .UtilityPopup,
+    .WarnBox,
+    span.CUnreadCount,
+    .ToolTip,
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"],
+    .uneditable-input,
+    .btn,
+    .span2,
+    .nav-pills .dropdown-menu,
+    .breadcrumb,
+    .TopicList li .Meta span em,
+    .pagination li:last-child a,
+    .pagination li:first-child a,
+    .pagination li:last-child a,
+    .nav-tabs > li > a {
+        border-radius: 0px !important;
+    }
+}
