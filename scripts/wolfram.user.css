@@ -1,0 +1,28 @@
+/* ==UserStyle==
+@name           Wolfram Modern
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A modern style for WolframAlpha
+@author         Bowserinator
+==/UserStyle== */
+@-moz-document url-prefix("https://www.wolframalpha.com/") {
+    /* Make everything square */
+    *, *:before, *:after {
+        border-radius: 0px !important;
+    }
+
+    /* Fix main query input box */
+    ._3Djg, ._afhh {
+        border-radius: 0px !important;
+        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.06);
+        border: 2px solid #ff9339;
+    }
+
+    /* Hover transitions */
+    #spons-bound,
+    .pod,
+    a,
+    button {
+        transition: 0.2s;
+    }
+}

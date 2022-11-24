@@ -17,3 +17,7 @@ should offer to install it.
 
 **powdertoy.co.uk**
 - Slightly more modern style for powdertoy.co.uk (Mostly removes ugly shadows and gradients from bootstrap default), as well as a slightly larger save grid.
+
+**wolframalpha.com**
+- Remove border-radii and add some transitions
+
