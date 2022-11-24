@@ -1,0 +1,122 @@
+/* ==UserStyle==
+@name           Google Modern
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Google but moderner and less round
+@author         Bowserinator
+@preprocessor   less
+==/UserStyle== */
+
+@-moz-document domain("google.com") {
+    // Entirely remove border-radius
+    // Search bar
+    .RNNXgb,
+    // Top search bar
+    .o6juZc,
+    // Related image searches
+    .J3Tg1d,
+    // Select image
+    .OcgH4b .PNCib.fT6ABc::after,
+    // Image preview
+    .WaWKOe,
+    // Video preview
+    .pEZFif, .j0lPWc.p6gLxb,
+    // Shopping card
+    .i0X6df, .sh-dr__g,
+    // Flight card
+    .OOfM7c .UNhlge, .oEYiPd, .aoPzFe,
+    // Finance card
+    .q0mqEc, .sO6IOb, .NstWLb, .GCviOb, .XI95Cc,
+    // Search autofill
+    .aajZCb,
+    // News card
+    .VpAEjc, .OIL2le,
+    // Definition card
+    .BklRsd,
+    // Translate dropdown
+    .H5sZMe, #tw-target, .j1iyq,
+    // Map
+    .o8ebK,
+    // Chip dropdown
+    .A29zgf, .A29zgf .niO4u,
+    // Side card
+    .EsIlz, .s1SShd .UnFsfe,
+    // Calculator
+    .TIGsTb,
+    // Formula card
+    .dG2XIf .wDYxhc:first-child, .dG2XIf, .lr-fy-tb,
+    // Tools menu
+    .pqHExb, .JscqU, #jLST0c,
+    // Side images
+    #media_result_group > div:first-child > div:first-child > div > div,
+    // Side card
+    .I6TXqe,
+    // Color inputs
+    .R9RxHd,
+    // Apps
+    .EHzcec,
+    // Atom 3D model
+    .zVq10e
+    {
+        border-radius: 0px !important;
+    }
+    
+    // Less border radius
+    // Related searches
+    .k8XOCe,
+    // Images in main search
+    .BYbUcd, .znlzCd, g-inner-card, .JFSfwc,
+    .kuydt .gTrj3e, g-img img, g-img div, .XQ6p1d,
+    .JAC8bd, .ss6qqb .twQ0Be, .gTrj3e, .l1zqbf,
+    .e2yrne, .Z26q7c.UK95Uc > div,
+    // Video result
+    .kp-wholepage-osrp .RdksUd .twQ0Be,
+    // View all btn
+    .MXl0lf,
+    // Dropdown
+    .gLSAk,
+    // Image result
+    .wXeWr,
+    // Images see more button
+    .JErdre,
+    // Visit site button
+    .A4cZdb,
+    // Search result video
+    .U1TUId,
+    // Video expand btn
+    .GLOxKc,
+    // Top flight card
+    .AJxgH,
+    // Finance image
+    .Z4idke, .a9REI,
+    // Side button
+    .nlkCwe .TYpgMc,
+    // Calculator
+    .MEdqYd, .feqqG,
+    .AOvabd, .dxp44d,
+    .UUhRt,
+    // Claim this knowledge panel
+    .H73aad,
+    // Maps
+    .S7dMR,
+    // Buttons
+    g-raised-button
+    {
+        border-radius: 2px !important;
+    }
+    
+    // Tiles
+    .ZkkK1e,
+    // Related image cards
+    .ZZ7G7b,
+    .CBvy7c,
+    // Finance chip
+    .vReuC
+    {
+        border-radius: 0px !important;
+        
+        img, .POUQwd.z27Mgd {
+            border-radius: 0px !important;
+        }
+    }
+}

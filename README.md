@@ -21,3 +21,5 @@ should offer to install it.
 **wolframalpha.com**
 - Remove border-radii and add some transitions
 
+**google.com**
+- Remove border-radii from a lot of things
