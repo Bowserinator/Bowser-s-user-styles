@@ -23,3 +23,6 @@ should offer to install it.
 
 **google.com**
 - Remove border-radii from a lot of things
+
+**myanimelist.net**
+- Modern theme, new font and dark theme

@@ -1,0 +1,1093 @@
+/* ==UserStyle==
+@name           Modern MAL
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Styles for a more modern MAL interface
+@author         Bowserinator
+@preprocessor   less
+
+@var checkbox DarkMode "DarkMode for MAL" 1
+@var checkbox CustomScrollBar "Use custom scrollbar" 1
+==/UserStyle== */
+
+@-moz-document domain("myanimelist.net") {     
+    @import (css) "https://fonts.googleapis.com/css?family=Open+Sans";
+
+    :root {
+        --global-width: 1100px;
+        --nav-height: 40px;
+        --nav-left-margin: calc((100% - var(--global-width)) / 2);
+        --nav-right-margin: calc((100% - var(--global-width)) / 2);
+        
+        --background-color: white;
+        --background-secondary-color: #f8f8f8;
+        --text-color: #111;
+        
+        --select-padding: 6px;
+        --shadow-color: rgba(0,0,0,0.1);
+        --max-paragraph-width: 700px;
+    }
+    
+    & when (@DarkMode = 1) {
+        :root {
+            --background-color: #1d1d1d;
+            --background-secondary-color: #2a2a2a;
+            --background-color-3: #393939;
+            --border-color: #444;
+            
+            --text-color: #ccc;
+            --text-color-title: white;
+            --text-color-faded: #999;
+            --text-link-color: #689dd4 /*1c439b*/;
+            --shadow-color: rgba(255,255,255,0.05);
+        }
+        
+        /* Logo */
+        .link-mal-logo {
+            filter: invert(1);
+        }
+        
+        /* Dark mode color styling */
+        /* Anything with a white background */
+        #headerSmall,
+        .page-common #contentWrapper,
+        .page-forum .forum_boardrow1,
+        .review-element,
+        .page-common #horiznav_nav ul li a:not(.horiznav_active),
+        .page-common #horiznav_nav ul li,
+        .page-common .header-profile.link-bg,
+        .page-common .header-profile .header-profile-dropdown ul li a,
+        .user-profile .user-status li,
+        .user-status-block .form-user-episode,
+        .user-status-block .form-user-score, 
+        .user-status-block .form-user-status,
+        .user-status-block .form-user-episode.completed input[type=text],
+        .user-profile .user-function .icon-user-function,
+        .page-common .bgColor1,
+        .club-search-form-search .inputButton,
+        .stacks .btn-new-stack.on,
+        .page-common div.picSurround img,
+        .mal-navbar,
+        .page-forum .forum-topic-message .message-wrapper .content,
+        .page-forum .forum-topic-message .message-wrapper .profile,
+        tr.ranking-list td,
+        .navi-seasonal,
+        .payment .payment-method input.payment-radio[type=radio]+label,
+        #fancybox-outer,
+        .staff_wrap .staff:nth-child(odd),
+        .membership .about-membership section > *,
+        .stacks .stacks-detail > *,
+        .stacks .stacks-detail .list-anime-list .seasonal-anime .info,
+        .club-list .table-data:nth-of-type(odd) td,
+        .anime-character, .manga-character,
+        .page-advertising #ad_menu,
+        .page-advertising section.ad_section:nth-of-type(even) div.ad_section,
+        .membership .membership-manager .status-table.bg-color,
+        .ownlist_style .new-theme-list .new-theme-unit,
+        .stacks .sticky-toolbar {
+            background-color: var(--background-color) !important;
+        }
+        
+        /* Secondary background */
+        .profile .statistics-updates .data .graph,
+        .user-profile .user-status li:nth-of-type(even),
+        .detail-characters-list .left-column table:nth-of-type(even), .detail-characters-list .left-right table:nth-of-type(even),
+        .page-forum .forum_boardrow2,
+        .anime-detail-header-stats .stats-block,
+        .anime-detail-header-stats .user-status-block,
+        .page-common .inputtext:not(#searchBar .inputtext),
+        textarea,
+        .goodresult,
+        .page-common a.button_add.button_add, .page-common a.button_add.button_edit, .page-common a.button_edit.button_add, .page-common a.button_edit.button_edit,
+        .stacks .new-stack-block,
+        .page-common .incrementalSearchResultList,
+        .page-common .incrementalSearchResultList .list,
+        #advanced-button .toggle-button,
+        a.mal-btn, button.mal-btn,
+        .page-common .quotetext, .page-common .codetext,
+        .page-common table.forum-topics tr td:nth-child(2n+1),
+        .page-forum .topic-poll .topic-poll-result .topic-poll-option .vote .topic-poll-button,
+        .page-forum .btn-forum-manga-store,
+        .page-common .bgColor2,
+        .seasonal-anime-list .seasonal-anime .prodsrc,
+        .seasonal-anime-list .seasonal-anime .genres,
+        .seasonal-anime-list .seasonal-anime .information,
+        .seasonal-anime-list .seasonal-anime .properties .property,
+        .navi-seasonal .horiznav_nav ul li a:not(.on),
+        .seasonal-anime-list .seasonal-anime .image,
+        .about-content.content-bg-grey,
+        .forum .forum-board:nth-of-type(even),
+        .membership .about-membership .about-no-ads,
+        .membership .about-membership .plan-gift .button,
+        .page-common .btn-forum,
+        .page-forum .forum-table-header,
+        body.news .news-container .news-info-block,
+        body.news .news-container .tags,
+        .news-list .comment-list:nth-of-type(even),
+        .review-element .thumbbody .body .reaction-box,
+        .stacks .stacks-detail .list-anime-list .seasonal-anime .head,
+        .club-list .btn-club-join,
+        .page-common .button_form,
+        .notification_settings .notification-setting-content .settings-notification .setting:first-of-type td,
+        .setting-row.locate-right,
+        .sns-setting .table tr:nth-of-type(odd) td,
+        .faq-container .faq-lists .question.on,
+        .membership .membership-payment .text-payment-notice,
+        .stacks .tag.box,
+        input[type="text"] {
+            background-color: var(--background-secondary-color) !important;
+        }
+        
+        /* Brighter */
+        .review-element .thumbbody .body .tags .tag,
+        .user-profile .user-function .icon-user-function:hover,
+        .stacks .new-stack-block .new-stack-item:hover,
+        .page-common .header-profile.link-bg:hover,
+        .page-common .header-profile .header-profile-dropdown ul li a:hover,
+        .club-search-form-search .inputButton:hover,
+        #advanced-button .toggle-button:hover,
+        #advanced-button .toggle-button:hover,
+        a.mal-btn:hover, button.mal-btn:hover,
+        .page-forum .topic-poll .topic-poll-result .topic-poll-option .vote .topic-poll-button:hover,
+        .seasonal-anime-list .seasonal-anime .genres .genre,
+        .membership .about-membership .plan-gift .button:hover,
+        .page-common .btn-forum:hover,
+        .news-list .comment-list .information .tags .tag, .news-list .news-unit .information .tags .tag,
+        body.news .tag-side-block .tag-cloud .tag,
+        body.news .menu-category .btn-edit-tags,
+        body.news .news-container .tags .tag,
+        .page-common .pagination .link:not(.current),
+        .review-element .thumbbody .body .reaction-box .btn-reaction,
+        a.manga-store-genre-list-toggle,
+        .stacks .search-side .quick-search a,
+        .club-list .btn-club-join:hover,
+        .manga-store .detail-card .detail-infoList-item .tag,
+        .page-common .button_form:hover,
+        .stacks .radio.box.on,
+        input[type="text"]:focus {
+            background-color: var(--background-color-3) !important;
+        }
+        
+        /* Text color override */
+        .review-element .thumbbody .body .text,
+        .user-status-block .form-user-episode.completed input[type=text],
+        .page-common .inputtext:not(#searchBar .inputtext),
+        textarea,
+        .page-common .incrementalSearchResultList,
+        .page-common .incrementalSearchResultList .list,
+        .page-common .incrementalSearchResultList .list .on .info .media-type, .page-common .incrementalSearchResultList .list .on .info .extra-info,
+        .page-common .incrementalSearchResultList .list .off .info.anime .media-type, .page-common .incrementalSearchResultList .list .off .info.manga .media-type, .page-common .incrementalSearchResultList .list .off .info.news .media-type, .page-common .incrementalSearchResultList .list .off .info.featured .media-type, .page-common .incrementalSearchResultList .list .off .info.forum .media-type,
+        .detail-page-featured-article .news-list .news-unit .news-unit-right .text,
+        a.mal-btn, button.mal-btn,
+        .seasonal-anime-list .seasonal-anime .prodsrc,
+        .seasonal-anime-list .seasonal-anime .genres,
+        .seasonal-anime-list .seasonal-anime .information,
+        .seasonal-anime-list .seasonal-anime .information .information-item,
+        #fancybox-inner, #fancybox-frame, body,
+        .page-support #myanimelist #content p, .page-support #myanimelist #content li,
+        .forum .forum-board,
+        .membership .about-membership .about-extras .about-extras-content .text,
+        .membership .about-membership .about-no-ads .text .description,
+        body.news .menu-category .btn-category.selected,
+        .news-list .comment-list .text, .news-list .news-unit .text,
+        .page-common .pagination .link,
+        body.news .news-container .content,
+        .news-list .comment-list .quotetext,
+        .featured-pickup .featured-pickup-unit .text,
+        .stacks .stacks-detail .introduction,
+        tr.ranking-list td,
+        .club-list .table-data td .informantion,
+        .page-advertising .ad_form_content label,
+        .notification_settings .notification-setting-content .settings-notification .setting td.label .text,
+        .membership .membership-manager .status-table .data,
+        .faq-container .faq-lists .question,
+        .faq-container .faq-lists,
+        .payment .payment-method input.payment-radio[type=radio]+label,
+        .membership .membership-payment:not(.modal-payment-method)>section>.form-table .data, .membership .membership-payment .payment-subscribe-form .form-table .data,
+        input[type="text"] {
+            color: var(--text-color) !important;
+        }
+        
+        /* Headers */
+        .page-common .h1,
+        .page-common h2,
+        .anime-detail-header-stats .stats-block .numbers,
+        .anime-detail-header-stats .stats-block .score,
+        .review-element .thumbbody .body .rating,
+        .page-common .normal_header,
+        .page-forum .forum_locheader,
+        .page-support #myanimelist #content h3, .page-support #myanimelist #content h4,
+        .forum .forum-side-block .header,
+        .membership .about-membership .plan .plan-name,
+        .membership .about-membership .about-extras .about-extras-content .header,
+        body.news .news-side-block .header, body.news .header, body.news .tag-side-block .header,
+        .header,
+        .review-element .thumbbody .body .reaction-box .btn-reaction,
+        body.news .news-container .title,
+        .featured-article-body h1, .featured-article-body h2, .featured-article-body h3, .featured-article-body h4, .featured-article-body h5, .featured-article-body h6,
+        body.news .news-container .summary,
+        .featured-article-body p,
+        .notification_settings .notification-setting-content .settings-notification .setting td.label .title,
+        .page-advertising .ad-contents .ad-text-head3,
+        .membership .membership-manager .status-table .title,
+        .membership .membership-payment:not(.modal-payment-method)>section>.form-table .title, .membership .membership-payment .payment-subscribe-form .form-table .title,
+        .manga-store-preview-info .manga-store-preview-info-header {
+            color: var(--text-color-title) !important;
+        }
+        
+        /* Links */
+        .page-common a:not(.page-common #nav li a):not(.inputButton):not(.left-info-block-broadcast-button):not(.btn-profile-submit):not(.horiznav_active):not(.btn-category.on):not(.link-blue-box):not(.btn-user-status-add-list):not(.btn-search-more):not(.btn-addEdit-large.btn-anime-watch-status):not(.navi-seasonal .horiznav_nav ul li a):not(.btn-blue-rect):not(#footer-block a):not(input[type="submit"]):not(.icon-team-title):not(.button.ga-click):not(.btn-subscription):not(.pagination .link):not(.manga-store-information-carousel .content-book-data .content-book-button-link):not(.purchase-button-container a):not(.btn-link-detail):not(a.left-info-block-manga-store-button):not(.membership-nav .btn-nav.on):not(.btn-create):not(body.page_account_setting a.btn):not(.page-common .icon-social-login),
+        
+        .page-common a:visited:not(.page-common #nav li a):not(.inputButton):not(.left-info-block-broadcast-button):not(.btn-profile-submit):not(.horiznav_active):not(.btn-category.on):not(.link-blue-box):not(.btn-user-status-add-list):not(.btn-search-more):not(.btn-addEdit-large.btn-anime-watch-status):not(.navi-seasonal .horiznav_nav ul li a):not(.btn-blue-rect):not(#footer-block a):not(input[type="submit"]):not(.icon-team-title):not(.button.ga-click):not(.btn-subscription):not(.pagination .link):not(.manga-store-information-carousel .content-book-data .content-book-button-link):not(.purchase-button-container a):not(.btn-link-detail):not(a.left-info-block-manga-store-button):not(.membership-nav .btn-nav.on):not(.btn-create):not(body.page_account_setting a.btn):not(.page-common .icon-social-login),
+        .stacks .btn-new-stack,
+        .page-common .incrementalSearchResultList .list .on .info .name,
+        .page-common .incrementalSearchResultList .list .off .info.anime .name, .page-common .incrementalSearchResultList .list .off .info.manga .name, .page-common .incrementalSearchResultList .list .off .info.news .name, .page-common .incrementalSearchResultList .list .off .info.featured .name, .page-common .incrementalSearchResultList .list .off .info.forum .name,
+        #advanced-button .toggle-button,
+        .page-forum .topic-poll .topic-poll-result .topic-poll-option .vote .topic-poll-button,
+        .page-forum .btn-forum-manga-store-title,
+        .page-forum .btn-forum-manga-store-title-button,
+        .navi-seasonal .horiznav_nav ul li a:not(.on),
+        .membership .about-membership .plan-gift .button,
+        .news-list .comment-list .information .tags .tag.tag-color-feature-advertorial, .news-list .news-unit .information .tags .tag.tag-color-feature-advertorial,
+        .manga-store .comics-list-tab-item.is-active,
+        .ownlist_style .new-theme-list .new-theme-unit.selected .title {
+            color: var(--text-link-color) !important;
+        }
+        
+        /* Faded text */
+        .page-common .dark_text, .page-common .dark_text:hover, .page-common .dark_text:visited,
+        .review-element .thumbbody .body .update_at,
+        .page-common .fn-grey2,
+        .anime-detail-header-stats .stats-block .score:after,
+        .user-status-block .form-user-episode,
+        .page-common .fn-grey5,
+        .page-common .fn-grey6 {
+            color: var(--text-color-faded) !important;
+        }
+        
+        /* Borders */
+        .page-common .borderClass,
+        body h1.h1,
+        .page-common h2,
+        .user-profile h4,
+        .user-profile .user-status.border-top,
+        .review-element .thumbbody,
+        .page-common .border_top,
+        .page-common .content-container .container-right h5,
+        .page-common .content-container .container-left,
+        .anime-detail-header-stats .stats-block,
+        .anime-detail-header-stats .user-status-block,
+        .user-status-block .form-user-episode.completed input[type=text]:focus,
+        .page-common .inputtext,
+        .user-profile .user-function .icon-user-function,
+        .page-common #header-menu>.border:before,
+        textarea, table,
+        .stacks .tab-area,
+        .page-common a.button_add.button_add, .page-common a.button_add.button_edit, .page-common a.button_edit.button_add, .page-common a.button_edit.button_edit,
+        .club-search-form-search .inputButton,
+        .stacks .new-stack-block,
+        .page-common .normal_header,
+        .anime-manga-search .genre-link .genre-list,
+        .news-list .comment-list, .news-list .news-unit,
+        .ownlist_anime_update #advanced-button .separator, .ownlist_manga_update #advanced-button .separator,
+        .search_all .content-result .list,
+        .search_all .content-result .content-left,
+        .page-common .quotetext, .page-common .codetext,
+        .page-forum .sig-container,
+        .page-common .border_solid,
+        .slider-wrap,
+        .mal-btn-group .mal-btn,
+        .page-forum .btn-forum-manga-store,
+        .page-forum .btn-forum-manga-store-title-button:before,
+        .page-common .borderDark,
+        .top-ranking-table tr td,
+        .top-ranking-table tr:last-of-type,
+        tr.ranking-list td,
+        tr.ranking-list,
+        .seasonal-anime-list .seasonal-anime,
+        .navi-seasonal .horiznav_nav ul li a:not(.on),
+        .seasonal-anime-list .seasonal-anime .genres .genre,
+        .forum .forum-side-block .header,
+        .forum .forum-side-block .forum-side-list .forum-post,
+        body.news .menu-category .btn-category:not(.selected),
+        .news-list .comment-list .information .tags .tag, .news-list .news-unit .information .tags .tag,
+        body.news .menu-category,
+        body.news .content-left,
+        body.news .news-side-block .header, body.news .header, body.news .tag-side-block .header,
+        body.news .news-side-block .news-list .news, body.news .news-side-block .news-list .featured, body.news .news-side-block .featured-list .news, body.news .news-side-block .featured-list .featured, body.news .featured-side-block .news-list .news, body.news .featured-side-block .news-list .featured, body.news .featured-side-block .featured-list .news, body.news .featured-side-block .featured-list .featured,
+        body.news .tag-side-block .tag-cloud .tag,
+        body.news .menu-category .btn-edit-tags,
+        body.news .news-container .tags .tag,
+        .review-element .thumbbody .body .reaction-box .btn-reaction,
+        body.news .news-breadcrumbs, .featured-content-block-outer,
+        .manga-store .section-title,
+        .manga-store .main-left,
+        a.manga-store-genre-list-toggle,
+        .stacks .breadcrumbs_area.underline,
+        .stacks h3.underline,
+        .stacks .recent-list .column-item,
+        .stacks .content-left,
+        .stacks .side-list .column-item,
+        .stacks .search-side .quick-search a,
+        .stacks .search-list .column-item,
+        .table-data,
+        .club-list .table-data td,
+        .club-list .btn-club-join,
+        .manga-store .main-right,
+        .manga-store .breadcrumb,
+        .detail-preview-container:after,
+        .manga-store .detail-card .detail-infoList-item.copyright,
+        .manga-store .detail-card .detail-title, .manga-store .detail-card .detail-body,
+        .manga-store .comics-list-tab-item,
+        .manga-store .comics-list,
+        .manga-store .view-all,
+        .manga-store .content-detail-bottom,
+        .manga-store .content-detail,
+        .manga-store .detail-card .detail-infoList-item .tag,
+        .page-common .button_form,
+        .reviews-horiznav-nav-sort-block,
+        .user-status-block .form-user-episode,
+        .user-status-block .form-user-score,
+        .manga-store-preview,
+        .anime-character, .manga-character,
+        .notification_settings .notification-setting-content .settings-notification .setting td,
+        .sns-setting .cell-border-vertical,
+        .sns-setting,
+        .sns-setting .sns-setting-default,
+        .membership .membership-manager .status-table,
+        .faq-container .faq-lists .question,
+        .faq-container .faq-lists .answer,
+        .ownlist_style .new-theme-list .new-theme-unit,
+        body.apiconfig.input .agreement-outer .agreement,
+        .membership .membership-payment:not(.modal-payment-method)>section>.form-table.border-bottom, 
+        .membership .membership-payment .payment-subscribe-form .form-table.border-bottom,
+        .membership .membership-payment .text-payment-policy,
+        body.page_account_setting .info-container.bordered,
+        .stacks .sticky-toolbar,
+        .stacks div.underline,
+        input[type="text"] {
+            border-color: var(--border-color) !important;
+        }
+        
+        .page-forum .forum_boardrow2,
+        .page-forum .forum_boardrow1,
+        .page-common div.picSurround img,
+        .profile .statistics-updates .data .graph,
+        .detail-characters-list .left-column.divider:after,
+        .fav-slide-block .fav-slide .btn-fav .link .image,
+        #dialog,
+        .profile .statistics-updates .image,
+        .page-common .incrementalSearchResultList .list .image,
+        .review-element .thumbbody .body .tags .tag,
+        .page-forum .forum-topic-message .message-wrapper .content,
+        .page-forum .forum-topic-message .message-wrapper .profile,
+        .page-common table.forum-topics tr td,
+        .forum .forum-board,
+        body.news .news-side-block .news-list img.thumbs, body.news .news-side-block .featured-list img.thumbs, body.news .featured-side-block .news-list img.thumbs, body.news .featured-side-block .featured-list img.thumbs,
+        .news-list .comment-list .image-link .image, .news-list .news-unit .image-link .image,
+        .news-list .comment-list .image-link, .news-list .news-unit .image-link,
+        .manga-store-information-carousel .content-banner, .manga-store-information-carousel .content-book {
+            border-color: transparent !important;
+        }
+        
+        .page-common div.picSurround img {
+            border: 1px solid var(--border-color) !important;
+        }
+        
+        /* Hide border on score input normally */
+        .user-status-block .form-user-episode.completed input[type=text] {
+            border-color: transparent !important;
+        }
+        
+        /* Brighten some text */
+        .page-common .notice_open_public,
+        .user-status-block .form-user-status[data-class=dropped],
+        .leftside .broadcasts .info,
+        .review-element .thumbbody .body .tags .tag.spoiler,
+        .review-element .thumbbody .body .tags .tag.not-recommended,
+        body.apiconfig.input div.danger,
+        body.page_account_setting .info-container .info-item .mfa-status .disabled,
+        body.apiconfig.input table td:nth-child(1).required:after,
+        .stacks .caution {
+            color: #eb3838;
+            border-color: #eb3838;
+        }
+        .user-status-block .form-user-status[data-class=completed],
+        .user-status-block .form-user-score,
+        .review-element .thumbbody .body .tags .tag.recommended {
+            color: var(--text-link-color) !important;
+        }
+        .review-element .thumbbody .body .tags .tag.mixed-feelings {
+            color: #aaa !important;
+        }
+        .user-status-block .form-user-status[data-class=completed] {
+            border-color: var(--text-link-color);
+        }
+        .anime-detail-header-stats .stats-block:before {
+            background-color: transparent;
+        }
+        .mal-alert.danger {
+            color: #b25959;
+        }
+        
+        /* Invert icons */
+        .oped-preview-button {
+            filter: invert(1);
+        }
+        .user-profile .user-function .icon-user-function:not(.disabled) {
+            filter: brightness(1.2);
+            border-color: var(--text-link-color) !important;
+        }
+        .user-profile .user-function .icon-user-function.disabled {
+            filter: brightness(0.7);
+        }
+        
+        /* No border */
+        .user-profile .user-friends .icon-friend,
+        .featured-pickup .featured-pickup-unit .image {
+            box-shadow: none;
+        }
+        
+        /* Unround */
+        textarea:focus,
+        input[type="text"]:focus,
+        .anime-search-form-block .anime-search-form-search .inputtext:focus { 
+            outline: none;
+            border-color: white !important;
+        }
+        
+        /* Top input, hover */
+        #topSearchText,
+        .page-common .hoverinfo,
+        .page-common .bg-color-blue1 {
+            color: black !important;
+        }
+        
+        .navi-seasonal.fixed {
+            box-shadow: 0px 0px 15px 0px var(--shadow-color);
+        }
+        
+        /* gradients */
+        .navi-seasonal.fixed:after,
+        .page-advertising #ad_menu.fixed:after {
+            display: none !important;
+        }
+        
+        /* Remove text shadow */
+        .membership .about-membership .about-no-ads .text .description {
+            text-shadow: none !important;
+        }
+
+        .swiper-pagination-bullet:not(.swiper-pagination-bullet-active),
+        a.manga-store-genre-list-toggle:before,
+        a.manga-store-genre-list-toggle:after {
+            background-color: #ddd !important;
+        }
+        .manga-store-information-carousel-container .swiper-button-next, .manga-store-information-carousel-container .swiper-button-prev {
+            background-color: rgba(0,0,0, 0.3) !important;
+        }
+        hr {
+            height: 0px;
+            outline: none;
+            border: none !important;
+            border-bottom: 1px solid var(--border-color) !important;
+        }
+        .manga-store .comics-list-tab-area:before {
+            background: var(--border-color) !important;
+        }
+        
+        .page-common h1.h1,
+        .page-common div.h1 {
+            border-bottom: 1px solid var(--border-color) !important;
+        }
+    }
+    
+    & when (@CustomScrollBar = 1) {
+        /* Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #b0b0b0 #4a4a4a;
+        }
+
+        /* Chrome, Edge, and Safari */
+        *::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        *::-webkit-scrollbar-track {
+            background: #4a4a4a;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: #b0b0b0;
+            border-radius: 5px;
+            border: 0px none #ffffff;
+        }
+    }
+    
+    body {
+        font-family: 'Open Sans', sans-serif !important;
+        background: var(--background-color) !important;
+    }
+    
+    .about-header-sub {
+        font-family: 'Open Sans', sans-serif !important;
+    }
+    
+    /* Larger global font size */
+    .page-common td {
+        font-size: 12px;
+    }
+    
+    /* -------- */
+    #myanimelist {
+        width: 1120px !important;
+    }
+    
+    a, button {
+        transition: background-color 0.1s, color 0.1s;
+    }
+    
+    /* Buttons */
+    a.left-info-block-broadcast-button,
+    .page-common .inputButton.flat,
+    .ga-click,
+    a.left-info-block-manga-store-button {
+        border-radius: 2px !important;
+    }
+    
+    .club-search-form-search .inputButton,
+    .anime-search-form-block .anime-search-form-search .inputButton {
+        border-radius: 0 2px 2px 0;
+    }
+    .club-search-form-search .select,
+    .anime-search-form-block .anime-search-form-search .inputtext {
+        border-radius: 2px 0 0 2px;
+    }
+    .btn-search-more,
+    .page-forum .topic-poll .topic-poll-result .topic-poll-option .vote .topic-poll-button,
+    a.mal-btn,
+    button.mal-btn,
+    .btn-addEdit-large.btn-anime-watch-status,
+    .navi-seasonal .horiznav-nav-seasonal .btn-seasonal .btn-type,
+    .manga-store .manga-store-search-form-search .inputButton,
+    .manga-store .manga-store-search-form-search .inputtext {
+        border-radius: 0px !important;
+    }
+    
+    /* Search */
+    .page-common .incrementalSearchResultList,
+    .page-common .incrementalSearchResultList .list.list-bottom,
+    .search-area .inputtext,
+    .search-area .inputButton,
+    .people-search-form-search .inputtext,
+    .people-search-form-search .inputButton,
+    .characters-search-form-search .inputtext,
+    .characters-search-form-search .inputButton {
+        border-radius: 0 !important;
+    }
+    
+    .watch .video-menu-category .btn-category {
+        border-radius: 2px 2px 0 0 !important;
+    }
+    
+    /* Search dropdown */
+    .page-common .incrementalSearchResultList {
+        border: none !important;
+        box-shadow: 0px 0px 15px 0px var(--shadow-color);
+    }
+
+    /* Seasonal card shadow */
+    .seasonal-anime-list .seasonal-anime {
+        box-shadow: 0px 0px 15px 0px var(--shadow-color);
+    }
+    
+    /* Expand to full width */
+    /*
+    .wrapper,
+    .page-common #myanimelist,
+    .page-common #menu {
+        width: 100%;
+    }*/
+    
+    /* Dark theme */
+    .page-common #content {
+        background-color: var(--background-color) !important;
+        color: var(--text-color) !important;
+        border: none !important;
+    }
+    
+    /* Top search bar - remove round corners */
+    #menu_right {
+        height: var(--nav-height) !important;
+    }
+    #top-search-bar {
+        height: 100% !important;
+        
+        #searchBar {
+            padding: 0 !important;
+            height: var(--nav-height) !important;
+            
+            select,
+            & > div,
+            & > input,
+            & > button {
+                height: var(--nav-height) !important;
+                box-sizing: border-box;
+            }
+            
+            #topSearchText {
+                border-left:rgba(46, 81, 162, 0.15) 1px solid !important;
+                background-color: #f2f5ff !important;
+            }
+            
+            select {
+                outline: none;
+                border: none;
+            }
+            
+            .form-select-outer,
+            #topSearchButon {
+                border-radius: 0 !important;
+            }
+            
+            #topSearchValue {
+                background-position: 74px calc(var(--nav-height) / 2 - 3px);
+            }
+            
+            #topSearchButon {
+                width: 36px;
+            }
+        }
+    
+    }
+    
+    /* User header dropdown */
+    #header-menu .header-menu-dropdown {
+        right: -10px !important;
+        border: none !important;
+        
+        a {
+            border-bottom: rgba(46, 81, 162, 0.15) 1px solid !important;
+        }
+    }
+    
+    /* Ranking list */
+    .ranking-list {
+        td {
+            padding: 6px 16px !important;
+        }
+
+        img:first-of-type {
+            width: 70px !important;
+            height: 100%;
+        }
+        
+        .detail {
+            padding: 0 0 6px 0;
+            margin-left: 100px !important;
+        }
+        .top-anime-rank-text,
+        .pepole-rank-text {
+            font-size: 19px !important;
+        }
+    }
+    
+    /* Shrink header buttons */
+    .page-common .header-notification-button .icon,
+    .page-common .header-message-button .icon,
+    .page-common .header-list-button .icon {
+        font-size: 16px !important;
+    }
+
+    /* Content fill */
+    #contentWrapper {
+        max-width: var(--global-width);
+        margin: 20px auto 0 auto !important;
+    }
+    
+    /* Menu bar */
+    #menu {
+        box-shadow: 0px 0px 15px 0px var(--shadow-color);
+    }
+    
+    /* Settings seperator */
+    #advanced-button {
+        margin: 16px 0;
+    }
+    
+    /* Larger menu / search bar */
+    /*#headerSmall,
+    #menu {
+        background-color: #222 !important;  // #2e51a2
+    }
+    
+    .page-common .header-notification-button,
+    .page-common .header-message-button,
+    .page-common .header-list-button {
+        color: white !important;
+    }*/
+    
+    /*#header-menu,
+    #menu_right {
+        padding-right: var(--nav-right-margin);
+    }*/
+    
+    /* Fix fancy position */
+    #fancybox-wrap {
+        position: fixed;
+        top: 50% !important;
+        transform: translateY(-50%);
+    }
+    
+    #menu {
+        height: var(--nav-height) !important;
+        width: 100% !important;
+    }
+    
+    #nav > li > a {
+        line-height: var(--nav-height) !important;
+        padding: 0 !important;
+        text-align: center !important;
+        text-indent: 0 !important;
+        font-weight: normal !important;
+    }
+    
+    /* Properly align logo and menu */
+    /*#menu_left,
+    .page-common #headerSmall > a.link-mal-logo {
+        margin-left: var(--nav-left-margin);
+    }
+    .page-common #headerSmall {
+        background-position: calc(var(--nav-left-margin) + 105px) center;
+    }*/
+
+    /* Menu dropdown */
+    .wider, .wide, #menu #nav .hover ul {
+        position: absolute !important;
+        top: var(--nav-height) !important;
+        box-shadow: 0px 0px 15px 0px var(--shadow-color);
+    }
+    
+    /* 
+    .page-common #searchBar.searchBar #topSearchText {
+        height: 25px !important;
+    }
+
+    .page-common #searchBar.searchBar #topSearchValue,
+    .page-common #searchBar.searchBar #topSearchButon,
+    .page-common #searchBar.searchBar .form-select-outer {
+        height: 29px !important;
+    } */
+
+    #menu #nav li .non-link {
+        height: var(--nav-height) !important;
+    }
+
+    #menu #nav li a:hover { cursor: pointer; }
+    
+    
+    /* Anime page
+     * ---------------------------- */
+    /* Title */
+    .page-common .h1 {
+        background-color: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid #ddd !important;
+        margin-bottom: 16px !important;
+    }
+    .page-common .h1 .title-name > strong,
+    .h1-title > * {
+        font-size: 14pt !important;
+    }
+    .h1-title .title-english {
+        font-style: italic !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Shrink top links so they fit on page */
+    .page-common #horiznav_nav ul li a {
+        font-size: 11.5px;
+    }
+
+    /* Forum message */
+    .page-forum .forum-topic-message .message-wrapper .content > .message-text,
+    .page-forum .forum-topic-message .message-wrapper .profile {
+        padding: 16px 0;
+        max-width: var(--max-paragraph-width);
+    }
+    
+    /* only indent inner quotes */
+    .page-common .quotetext {
+        margin-left: 0;
+        padding: 8px;
+    
+        .quotetext {
+            margin-left: 10px;
+        }
+    }
+    
+    /* Support page */
+    .page-support #myanimelist #content p, .page-support #myanimelist #content li, .page-support #myanimelist #content h3, .page-support #myanimelist #content h4 {
+        max-width: var(--max-paragraph-width);
+    }
+    
+    /* Rec page */
+    .review-element .thumbbody .body .text {
+        max-width: var(--max-paragraph-width);
+        padding: 0 16px 0 0;
+    }
+    .review-element .thumbbody .thumb {
+        margin-right: 22px;
+    }
+    
+    /* Select */
+    .user-status-block select,
+    .user-status-block .form-user-episode,
+    .user-status-block .btn-user-status-add-list {
+        border-radius: 0 !important;
+        padding-top: var(--select-padding) !important;
+        padding-bottom: var(--select-padding) !important;
+        height: 30.6px !important;
+        box-sizing: border-box;
+    }
+    .user-status-block .btn-user-status-add-list {
+        line-height: calc(30.6px - 2 * var(--select-padding));
+    }
+    .user-status-block .form-user-score {
+        background-position: 8px var(--select-padding), 118px calc(var(--select-padding) + 4px);
+    }
+    
+    h2:not(.h2_anime_title):not(body.news h2) {
+        /* font-variant: small-caps; */
+        /* font-size: 15px !important; */
+        text-transform: uppercase;
+        font-size: 10px !important;
+        letter-spacing: 0.3px;
+    }
+    
+    /* User profile image */
+    .user-image {
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    
+    /* Less margin */
+    .profile .user-profile-about {
+        margin-bottom: 24px !important;
+    }
+    
+    /* More padding */
+    .user-statistics-stats {
+        & > div {
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+        }
+        & > div:first-child {
+            padding-left: 0 !important;
+            padding-right: 12px !important;
+        }
+        & > div:nth-child(2) {
+            padding-left: 12px !important;
+            padding-right: 0 !important;
+        }
+    }
+    .container-right {
+        padding: 0 0 0 24px !important;
+    }
+    
+    /* User profile buttons */
+    .user-profile .user-function .icon-user-function {
+        border-radius: 0 !important;
+        
+        &.disabled {
+            cursor: not-allowed;
+        }
+    }
+    
+    /* More margin */
+    .user-button.mb12 {
+        margin-bottom: 24px !important;
+    }
+    .user-status > li {
+        padding: 2px 4px !important;
+    }
+    
+    /* User button */
+    .user-profile .user-function {
+        margin: 0 !important;
+        display: flex;
+        flex-direction: row;
+        width: auto !important;
+        justify-content: space-between;
+    }
+    .user-profile .user-function .icon-user-function {
+        margin: 0 !important;
+        margin-bottom: 12px !important;
+    }
+    
+    /* Stacks */
+    .stacks .tab-area ul li {
+        border-radius: 2px 2px 0 0 !important;
+    }
+}
+
+@-moz-document regexp("https://myanimelist.net/search/.+") {
+    /* Anime search bar container */
+    .anime-search-form-block {
+        margin: 0 0 30px 0 !important;
+        
+        input, button {
+            border-radius: 0 !important;
+        }
+    }
+}
+
+@-moz-document regexp("https://myanimelist.net/recommendations/.+") {
+    #content table {
+        margin-bottom: 16px;
+    }
+
+    #content .borderClass,
+    #content .borderClass {
+        padding: 8px 16px !important;
+        
+        span {
+            display: block;
+            max-width: var(--max-paragraph-width);
+        }
+    }
+}
+
+@-moz-document url("https://mxj.myanimelist.net/?_location=mal_h_m") {
+    & when (@DarkMode = 1) {
+        body {
+            color: black !important;
+        }
+
+        .c-tabCard > *,
+        .footer-container *,
+        .footer-copyright {
+            color: var(--text-color) !important;
+        }
+
+        .sns-icon {
+            filter: invert(1);
+        }
+    }
+}
+@-moz-document regexp("https://myanimelist.net/(anime|manga)/\\d+/.*") {
+    /* Anime page */
+    /* Shrink preview videos */
+    #episode_video .anime-slide li {
+        width: 181px !important;
+        height: 130px !important;
+    }
+    
+    /* More space */
+    .title-english {
+        margin: 3px 0 !important;
+    }
+    
+    /* No borders in related anime */
+    .anime_detail_related_anime td {
+        border-color: transparent !important;
+    }
+    
+    /* Shrink numbers to account for padding */
+    .anime-detail-header-stats .stats-block .numbers {
+        font-size: 15px !important;
+    }
+    
+    /* Content tables */
+    #content > table > tbody > tr > td {
+        padding: 6px 12px;
+    }
+    #content > table /*,
+    #content > table > tbody > tr > td > .rightside > table:first-of-type */ {
+        table-layout: fixed;
+    }
+    /* Left most col */
+    #content > table:first-child > tbody > tr:first-child > td:first-child {
+        background-color: var(--background-secondary-color) !important;
+        border: none !important; /* Remove border from left col */
+        box-shadow: 0px 1px 5px -1px var(--shadow-color);
+    }
+    /* Right col */
+    #content > table:first-child > tbody > tr:first-child > td:nth-child(2) {
+        padding: 0 24px !important;
+    }
+    
+    /* Character table */
+    #content > table .detail-characters-list > div {
+        width: 48% !important;
+    }
+    #content > table .detail-characters-list table td:not(first-child):not(last-child) {
+        padding: 0 6px !important;
+        box-sizing: border-box !important;
+        max-height: 64px !important;
+    }
+    /* Spacing for the names */
+    #content > table .detail-characters-list table td:not(first-child):not(last-child) a {
+        line-height: 20px !important;
+        vertical-align: bottom !important;
+    }
+    #content > table .detail-characters-list table td:not(first-child):not(last-child) .spaceit_pad {
+        padding: 0 !important;
+    }
+    
+    /* Shrink view all btn */
+    .btn-detail-recommendations-view-all {
+        width: 70px !important;
+    }
+
+    /* Review body */
+    .review-element .body .text {
+        max-width: calc(var(--max-paragraph-width) - 100px) !important;
+    }
+    
+    /* Move rating up */
+    .review-element {
+        position: relative !important;
+    }
+    .rating {
+        position: absolute;
+        top: 4px;
+        right: 0px;
+        display: block !important;
+    }
+    
+    .reaction-box .ga-click {
+        border-radius: 0 !important;
+    }
+    
+    /* Desc max width */
+    p[itemprop="description"] {
+        max-width: var(--max-paragraph-width);
+    }
+}
+
+@-moz-document url-prefix("https://myanimelist.net/reviews.php?id=") {
+    .rating {
+        position: absolute;
+        top: 24px;
+        right: 120px;
+        display: block !important;
+    }
+    .review-element .body {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 900px !important;
+    }
+    .review-element .body .text {
+        max-width: 750px !important;
+    }
+}
+
+@-moz-document regexp("https://myanimelist.net/anime/\\d+/[^\\\\]+") {
+    /* Remove MALxJapan -More than just anime- */
+    #content > table:first-child > tbody > tr:first-child > td:nth-child(2)
+        > div:first-child > table > tbody > tr:nth-child(2) {
+        display: none !important;
+    }
+}
