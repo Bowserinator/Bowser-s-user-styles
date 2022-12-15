@@ -84,7 +84,8 @@
         .page-advertising section.ad_section:nth-of-type(even) div.ad_section,
         .membership .membership-manager .status-table.bg-color,
         .ownlist_style .new-theme-list .new-theme-unit,
-        .stacks .sticky-toolbar {
+        .stacks .sticky-toolbar,
+        .ranking-digest {
             background-color: var(--background-color) !important;
         }
         
@@ -134,7 +135,10 @@
         .faq-container .faq-lists .question.on,
         .membership .membership-payment .text-payment-notice,
         .stacks .tag.box,
-        input[type="text"] {
+        input[type="text"],
+        .ranking-digest .ranking-header,
+        .widget-slide-block .widget-slide .btn-anime .external-link,
+        body.index .widget-container .widget.friend_list_updates .footer {
             background-color: var(--background-secondary-color) !important;
         }
         
@@ -231,7 +235,8 @@
         .page-advertising .ad-contents .ad-text-head3,
         .membership .membership-manager .status-table .title,
         .membership .membership-payment:not(.modal-payment-method)>section>.form-table .title, .membership .membership-payment .payment-subscribe-form .form-table .title,
-        .manga-store-preview-info .manga-store-preview-info-header {
+        .manga-store-preview-info .manga-store-preview-info-header,
+        body.index .widget-container .widget .widget-header {
             color: var(--text-color-title) !important;
         }
         
@@ -250,7 +255,9 @@
         .membership .about-membership .plan-gift .button,
         .news-list .comment-list .information .tags .tag.tag-color-feature-advertorial, .news-list .news-unit .information .tags .tag.tag-color-feature-advertorial,
         .manga-store .comics-list-tab-item.is-active,
-        .ownlist_style .new-theme-list .new-theme-unit.selected .title {
+        .ownlist_style .new-theme-list .new-theme-unit.selected .title,
+        body.index .widget-container .widget.friend_list_updates .footer .btn-settings,
+        .page-common .watch-state-icon.watched {
             color: var(--text-link-color) !important;
         }
         
@@ -365,7 +372,13 @@
         body.page_account_setting .info-container.bordered,
         .stacks .sticky-toolbar,
         .stacks div.underline,
-        input[type="text"] {
+        input[type="text"],
+        body.index .left-column,
+        .ranking-digest .ranking-header,
+        body.index .widget-container .widget .widget-header,
+        body.index .widget-container .widget.my_list_updates .item, body.index .widget-container .widget.clubs .item, body.index .widget-container .widget.reviews .item,
+        body.index .widget-container .widget.friend_list_updates .footer,
+        body.index .widget-container .widget.friend_list_updates.right .item:not(:last-child) {
             border-color: var(--border-color) !important;
         }
         
@@ -386,7 +399,9 @@
         body.news .news-side-block .news-list img.thumbs, body.news .news-side-block .featured-list img.thumbs, body.news .featured-side-block .news-list img.thumbs, body.news .featured-side-block .featured-list img.thumbs,
         .news-list .comment-list .image-link .image, .news-list .news-unit .image-link .image,
         .news-list .comment-list .image-link, .news-list .news-unit .image-link,
-        .manga-store-information-carousel .content-banner, .manga-store-information-carousel .content-book {
+        .manga-store-information-carousel .content-banner, .manga-store-information-carousel .content-book,
+        .widget-slide-block .widget-slide .btn-anime,
+        body.index .widget-container .widget.friend_list_updates .image {
             border-color: transparent !important;
         }
         
