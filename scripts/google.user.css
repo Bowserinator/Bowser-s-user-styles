@@ -28,7 +28,7 @@
     // Finance card
     .q0mqEc, .sO6IOb, .NstWLb, .GCviOb, .XI95Cc,
     // Search autofill
-    .aajZCb,
+    .aajZCb, .W6pGoe,
     // News card
     .VpAEjc, .OIL2le,
     // Definition card
@@ -56,10 +56,15 @@
     // Apps
     .EHzcec,
     // Atom 3D model
-    .zVq10e
+    .zVq10e,
+    // Image grid
+    .ZHugbd
     {
         border-radius: 0px !important;
     }
+    
+    // Remove search gradient
+    .v7ex9d { background: none !important; }
     
     // Less border radius
     // Related searches
@@ -100,7 +105,11 @@
     // Maps
     .S7dMR,
     // Buttons
-    g-raised-button
+    g-raised-button,
+    // Books
+    .L3OsEb,
+    // Videos
+    .z9RGvc, .NqpkQc, .WM9LLd
     {
         border-radius: 2px !important;
     }
