@@ -1,0 +1,93 @@
+/* ==UserStyle==
+@name           Unrounded Google Drive
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Undo the new drive update
+@author         Bowserinator
+==/UserStyle== */
+
+@-moz-document domain("drive.google.com") {
+    :root {
+        --dt-corner-card: 2px !important;
+        --dt-surface-tint: rgba(0, 0, 0, 0) !important;
+        --dt-corner-landmark: 2px !important;
+    }
+
+    /* File cards */
+    .s55KNe .jGNTYb {
+        border-radius: 2px !important;
+        cursor: pointer;
+        border: 1px solid #ddd !important;
+        flex-direction: column-reverse !important;
+        /* Move file name to bottom */
+    }
+
+    /* Smaller file names */
+    .s55KNe .Q5txwe {
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+    }
+
+    /* File card - remove new ugly blue */
+    div[aria-selected="false"]>.jGNTYb {
+        background-color: white !important;
+    }
+
+    /* Small file preview */
+    .s55KNe .gudAKb,
+    .l-u-Ab-zb {
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Display grid spacing */
+    .s55KNe .iZmuQc {
+        grid-gap: 8px !important;
+    }
+
+    /* Overall files - less space on top */
+    .lVcy9 {
+        padding-top: 0 !important;
+    }
+
+    /* Lighter file hover */
+    .Ss7qXc:hover .vA3Shd {
+        opacity: 0.04 !important;
+    }
+
+    /* Button fixes */
+    /* Top left fabs for new file */
+    .brbsPe {
+        border-radius: 4px !important;
+        min-width: 130px !important;
+        background-color: var(--dt-primary, #fff);
+        color: white !important;
+        padding: 0.7rem 1.125em !important;
+        height: auto !important;
+    }
+
+    /* My drive button */
+    .a-l-Ba .h-R-w-d.a-l-S-Pc-w-d,
+    .o-Yc-o-T {
+        font-size: 14pt !important;
+    }
+
+    /* Unround */
+    /* Search bar */
+    #gb form[role="search"],
+    #gb .a-WErN3d-OEtP0,
+
+    /* Side nav */
+    .a-U-J,
+    .a-U-J:active::before,
+    .a-U-J:focus::before,
+    .a-U-J:hover::before,
+    .a-U-J-W::before {
+        border-radius: 2px !important;
+    }
+
+    /* Page top landmark */
+    .S630me {
+        border-radius: 2px 2px 0 0 !important;
+    }
+}

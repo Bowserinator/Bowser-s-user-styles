@@ -24,5 +24,10 @@ should offer to install it.
 **google.com**
 - Remove border-radii from a lot of things
 
+**drive.google.com**
+- As of March 7th 2023 this is for a new experimental drive design, you may not have the changes yet!
+- Remove border-radii, move file name to bottom, make more compact
+- Remove some of the new colors which are ugly imo
+
 **myanimelist.net**
 - Modern theme, new font and dark theme
